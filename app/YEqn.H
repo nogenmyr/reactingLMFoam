@@ -48,6 +48,9 @@ tmp<fv::convectionScheme<scalar> > mvConvection
         }
     }
 
-    Y[inertIndex] = scalar(1) - Yt;
-    Y[inertIndex].max(0.0);
+    if (inertIndex >= 0)
+    { 
+        Y[inertIndex] = scalar(1) - Yt;
+        Y[inertIndex].max(0.0);
+    }
 }
